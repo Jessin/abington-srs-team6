@@ -10,11 +10,11 @@
 <p>You entered the following information:<br />
 Name: <?php $lname = $_POST['lname']; $fname = $_POST['fname']; $mname = $_POST['mname'];
 					echo "{$fname} {$mname} {$lname}";
-					;
+					
 		?><br />
 SSN: <?php $ssn = $_POST['ssn']; echo "{$ssn} "; ?><br />
 DOB: <?php $dob = $_POST['dob']; echo "{$dob} "; ?><br />
-Address: <?php $street = $_POST['street']; $city = $_POST['city']; $state = $_POST['mname']; $ip = $_POST['zip']
+Address: <?php $street = $_POST['street']; $city = $_POST['city']; $state = $_POST['state']; $zip = $_POST['zip'];
 					echo "{$street} {$city} {$state} {$zip}";
 		?><br />
 Phone: <?php $phone = $_POST['phone']; echo "{$phone}"; ?><br />

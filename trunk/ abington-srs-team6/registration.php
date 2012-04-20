@@ -9,27 +9,27 @@
 <body>
 <h1>Student Information</h1>
 <p>Please provide the following information to submit your registration request and create your account.</p>
-<form action="account.php" method="post">
+<form action="account.php" method="POST">
 <table>
 	<tr>
 		<td>Last Name: </td>
-		<td><input type="text" name="lname" value="" /></td>
+		<td><input type="text" name="lname" /></td>
 		<td>First Name: </td>
-		<td><input type="text" name="fname" value="" /></td>
+		<td><input type="text" name="fname" /></td>
 		<td>Middle Name: </td>
-		<td><input type="text" name="mname" value="" /></td>
+		<td><input type="text" name="mname" /></td>
 	</tr>
 	<tr>
 		<td>SSN (no dashes): </td>
-		<td><input type="text" name="ssn" value="" /></td>
+		<td><input type="text" name="ssn" /></td>
 		<td>DOB (yyyymmdd): </td>
-		<td><input type="text" name="dob" value="" /></td>
+		<td><input type="text" name="dob" /></td>
 	</tr>
 	<tr>
 		<td>Street Address: </td>
 		<td><input type="text" name="street" value="" /></td>
 		<td>City/Town: </td>
-		<td><input type="text" name="town" value="" /></td>
+		<td><input type="text" name="city" value="" /></td>
 		<td>State: </td>
 		<td><select name="state">
 			<option value="AL">Alabama</option>
