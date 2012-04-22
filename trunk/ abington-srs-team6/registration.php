@@ -22,7 +22,7 @@
 	<tr>
 		<td>SSN (no dashes): </td>
 		<td><input type="text" name="ssn" /></td>
-		<td>DOB (yyyymmdd): </td>
+		<td>DOB (mm/dd/yyyy): </td>
 		<td><input type="text" name="dob" /></td>
 	</tr>
 	<tr>
