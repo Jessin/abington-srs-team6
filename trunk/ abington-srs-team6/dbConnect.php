@@ -1,3 +1,14 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
+<title>Untitled 1</title>
+</head>
+
+<body>
+
+
 <?php
 define ("DATABASE_HOST", "localhost");
 define ("DATABASE_USERNAME", "jpj5048_SRSData");
@@ -5,9 +16,9 @@ define ("DATABASE_PASSWORD", "srsdb");
 define ("DATABASE_NAME", "jpj5048_SRSData");
 ?>
 
-<!--dbConnect.php file using require
+//dbConnect.php file using require
 
-=========================* //-->
+=========================
 
 <?php
 //require 'app_config.php';
@@ -27,8 +38,6 @@ if (!$db_select){
 }
 ?>
 
-<!--
-//insert.php file with the record identity written returned
+</body>
 
-//========================================
-//-->
+</html>
