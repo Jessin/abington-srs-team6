@@ -7,80 +7,87 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 <script type="text/javascript">
 
-var check_name = /^[A-Za-z]{2,25}$/;
-var check_ssn = /^[1-9]{1}([0-9]{8})$/;
-var check_dob = ^(19|20)\d\d(0[1-9]|1[012])(0[1-9]|[12][0-9]|3[01])$
-var check_add = /^[A-Za-z0-9\.]{2,25}$/;
-var check_city = /^[A-Za-z]{2,15}$/;
-var check_zip = /^[1-9]{1}([0-9]{4})$/;
-var check_phone = /^[2-9]{1}([0-9]{9})$/;
-var check_pass = /^[1-9]{1}([0-9]{8})$/;
+var checkname = /^[A-Za-z]{2,25}$/;
+var checkssn = /^[1-9]{1}([0-9]{8})$/;
+
+var checkdob = /^(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.]((?:19|20)\d\d)$/;
+var checkstreet = /^[A-Za-z0-9\. ]{2,25}$/;
+var checkcity = /^[A-Za-z ]{2,15}$/;
+var checkzip = /^[0-9]{5}$/;
+var checkphone = /^[2-9]{1}([0-9]{9})$/;
+var checkpass = /^[A-Za-z0-9\&\@\#\$ ]{8,12}$/;
 
 
 
 $(document).ready(function () {
 
-	$("#lname, mname, fname").blur(function(){
-		var input = $(this).val();
-		if (!check_name.test(input)){
-		alert("Name fields must be letters only, between 2-25 characters.");
-		}
-		});
+	//alert("bob");
+	
+	$("#btn_sub").click(function() {
 		
-	$("#ssn").blur(function(){
-		var input = $(this).val();
-		if (!check_ssn.test(input)){
-		alert("SSN field is nine digits (no dashes) and may not begin with a zero.");
+		if (!checkname.test($("#lname").val()))
+		{
+			alert("Name fields must be letters only, between 2-25 characters.");
+		 	return false;
 		}
-		}); 
-		/
-	$("#dob").blur(function(){
-		var input = $(this).val();
-		if (!check_dob.test(input)){
-		alert("DOB must be a valid date in YYYYMMDD format (digits only).");
+		 
+		else if(!checkname.test($("#fname").val()))
+		{
+			alert("Name fields must be letters only, between 2-25 characters.");
+		 	return false;
 		}
-		});
-		
-	$("#add").blur(function(){
-		var input = $(this).val();
-		if (!check_add.test(input)){
-		alert("Address must be between 5 and 35 characters, no special characters.");
+		else if(!checkname.test($("#mname").val()))
+		{
+			alert("Name fields must be letters only, between 2-25 characters.");
+		 	return false;
 		}
-		});
+		else if(!checkssn.test($("#ssn").val()))
+		{
+			alert("SSN is nine digits without spaces, and may not begin with a zero.");
+		 	return false;
+		}
+		else if(!checkdob.test($("#dob").val()))
+		{
+			alert("DOB must be valid and in the shown format.");
+		 	return false;
+		}
 
-	$("#city").blur(function(){
-		var input = $(this).val();
-		if (!check_city.test(input)){
-		alert("City must be letters only and between 2 and 15 characters");
+		else if(!checkstreet.test($("#street").val()))
+		{
+			alert("Street Address must be between 2 and 25 characters, with no special characters (except .).");
+		 	return false;
 		}
-		});
-
-	$("#zip").blur(function(){
-		var input = $(this).val();
-		if (!check_zip.test(input)){
-		alert("SSN field is nine digits (no dashes) and may not begin with a zero.");
+		else if(!checkcity.test($("#city").val()))
+		{
+			alert("City must be between 2 and 15 characters, with no numbers or special characters.");
+		 	return false;
 		}
-		});
-
-	$("#phone").blur(function(){
-		var input = $(this).val();
-		if (!check_phone.test(input)){
-		alert("SSN field is nine digits (no dashes) and may not begin with a zero.");
+		else if(!checkzip.test($("#zip").val()))
+		{
+			alert("Zip code must be 5 digits.");
+		 	return false;
 		}
-		});
-
-	$("#pass").blur(function(){
-		var input = $(this).val();
-		if (!check_pass.test(input)){
-		alert("SSN field is nine digits (no dashes) and may not begin with a zero.");
+		else if(!checkphone.test($("#phone").val()))
+		{
+			alert("Phone is ten digits (no spaces or dashes). First digit must be 2 or higher");
+		 	return false;
 		}
-		});
-
+		else if(!checkpass.test($("#pass").val()))
+		{
+			alert("Password must be between 8 and 12 characters, and can contain letters, numbers, and the following special characters (&@#$).");
+		 	return false;
+		}
+		else if(!($("#pass").val() === $("#pass2").val()))
+		{
+			alert("Passwords do not match.");
+		 	return false;
+		}
+	}); 
 });
+	
 
 
 
-}
 </script>
 </head>
 
@@ -88,7 +95,7 @@ $(document).ready(function () {
 <h1>Student Information</h1>
 <p>Please provide the following information to submit your registration request and create your account.</p>
 <form action="account.php" method="POST">
-<table>
+<table id="table">
 	<tr>
 		<td>Last Name: </td>
 		<td><input type="text" id="lname" name="lname" /></td>
@@ -105,9 +112,9 @@ $(document).ready(function () {
 	</tr>
 	<tr>
 		<td>Street Address: </td>
-		<td><input type="text" id="street" name="street" value="" /></td>
+		<td><input type="text" id="street" name="street" /></td>
 		<td>City/Town: </td>
-		<td><input type="text" id="city" name="city" value="" /></td>
+		<td><input type="text" id="city" name="city" /></td>
 		<td>State: </td>
 		<td><select id="state" name="state">
 			<option value="AL">Alabama</option>
@@ -166,21 +173,21 @@ $(document).ready(function () {
 	</tr>
 	<tr>
 		<td>Zip Code: </td>
-		<td id="blah"><input type="text" id="zip" name="zip" value="" /></td>
+		<td><input type="text" id="zip" name="zip" /></td>
 		<td>Phone (no dashes): </td>
-		<td><input type="text" id="phone" name="phone" value="" /></td>
+		<td><input type="text" id="phone" name="phone" /></td>
 	</tr>
 	<tr> 
 	<td></td>
 	</tr>
 	<tr>
 		<td>Create your password: </td>
-		<td><input type="text" id="pass" name="pass" value="" /></td>
+		<td><input type="text" id="pass" name="pass" /></td>
 	</tr>
 	
 	<tr>
 		<td>Confirm password:</td>
-		<td><input type="text" id="pass2" name="pass2" value="" /></td>
+		<td><input type="text" id="pass2" name="pass2" /></td>
 	</tr>
 
 </table>
