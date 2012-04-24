@@ -10,7 +10,7 @@
 var checkname = /^[A-Za-z]{2,25}$/;
 var checkssn = /^[1-9]{1}([0-9]{8})$/;
 
-var checkdob = /^(0[1-9]|1[012])[- \/.](0[1-9]|[12][0-9]|3[01])[- \/.]((?:19|20)\d\d)$/;
+var checkdob = /^(0[1-9]|1[012])[\/](0[1-9]|[12][0-9]|3[01])[\/]((?:19|20)\d\d)$/;
 var checkstreet = /^[A-Za-z0-9\. ]{2,25}$/;
 var checkcity = /^[A-Za-z ]{2,15}$/;
 var checkzip = /^[0-9]{5}$/;
@@ -21,8 +21,9 @@ var checkpass = /^[A-Za-z0-9\&\@\#\$ ]{8,12}$/;
 
 $(document).ready(function () {
 
-	//alert("bob");
-	
+	alert("bob");
+	  	
+  		
 	$("#btn_sub").click(function() {
 		
 		if (!checkname.test($("#lname").val()))
@@ -83,9 +84,8 @@ $(document).ready(function () {
 		 	return false;
 		}
 	}); 
-});
+	});
 	
-
 
 
 </script>
@@ -94,7 +94,7 @@ $(document).ready(function () {
 <body>
 <h1>Student Information</h1>
 <p>Please provide the following information to submit your registration request and create your account.</p>
-<form action="account.php" method="POST">
+<form id="form" action="account.php" method="POST">
 <table id="table">
 	<tr>
 		<td>Last Name: </td>
