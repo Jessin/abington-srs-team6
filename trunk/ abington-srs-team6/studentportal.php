@@ -11,15 +11,16 @@
 </head>
 
 <body>
+<h2>Student Portal</h2>
 <p id="welcome">
-Welcome, 
-<input type="button" id="logout" name="logout" value="Log Out" />
+Welcome, user.                      
 
 </p>
 
 <input type="button" id="info" name="info" value="Edit Account Info" />
 <input type="button" id="schedule" name="button"value="View Student Schedule" />
 <input type="button" id="course" name="course" value="View Course Listings" />
+<input type="button" id="logout" name="logout" value="Log Out" />
 
 </body>
 
