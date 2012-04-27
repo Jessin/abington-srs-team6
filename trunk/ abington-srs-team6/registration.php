@@ -1,122 +1,70 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-
+<!DOCTYPE html>
+<html>
 <head>
-<meta content="text/html; charset=utf-8" http-equiv="Content-Type" />
-<title>Registration</title>
+<meta charset="UTF-8" />
+<title>Student Registration System</title>
+
 <script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
-<script type="text/javascript">
-
-var checkname = /^[A-Za-z]{2,25}$/;
-var checkssn = /^[1-9]{1}([0-9]{8})$/;
-
-var checkdob = /^(0[1-9]|1[012])[\/](0[1-9]|[12][0-9]|3[01])[\/]((?:19|20)\d\d)$/;
-var checkstreet = /^[A-Za-z0-9\. ]{2,25}$/;
-var checkcity = /^[A-Za-z ]{2,15}$/;
-var checkzip = /^[0-9]{5}$/;
-var checkphone = /^[2-9]{1}([0-9]{9})$/;
-var checkpass = /^[A-Za-z0-9\&\@\#\$ ]{8,12}$/;
-
-
-
-$(document).ready(function () {
-
-	alert("bob");
-	  	
-  		
-	$("#btn_sub").click(function() {
-		
-		if (!checkname.test($("#lname").val()))
-		{
-			alert("Name fields must be letters only, between 2-25 characters.");
-		 	return false;
-		}
-		 
-		else if(!checkname.test($("#fname").val()))
-		{
-			alert("Name fields must be letters only, between 2-25 characters.");
-		 	return false;
-		}
-		else if(!checkname.test($("#mname").val()))
-		{
-			alert("Name fields must be letters only, between 2-25 characters.");
-		 	return false;
-		}
-		else if(!checkssn.test($("#ssn").val()))
-		{
-			alert("SSN is nine digits without spaces, and may not begin with a zero.");
-		 	return false;
-		}
-		else if(!checkdob.test($("#dob").val()))
-		{
-			alert("DOB must be valid and in the shown format.");
-		 	return false;
-		}
-
-		else if(!checkstreet.test($("#street").val()))
-		{
-			alert("Street Address must be between 2 and 25 characters, with no special characters (except .).");
-		 	return false;
-		}
-		else if(!checkcity.test($("#city").val()))
-		{
-			alert("City must be between 2 and 15 characters, with no numbers or special characters.");
-		 	return false;
-		}
-		else if(!checkzip.test($("#zip").val()))
-		{
-			alert("Zip code must be 5 digits.");
-		 	return false;
-		}
-		else if(!checkphone.test($("#phone").val()))
-		{
-			alert("Phone is ten digits (no spaces or dashes). First digit must be 2 or higher");
-		 	return false;
-		}
-		else if(!checkpass.test($("#pass").val()))
-		{
-			alert("Password must be between 8 and 12 characters, and can contain letters, numbers, and the following special characters (&@#$).");
-		 	return false;
-		}
-		else if(!($("#pass").val() === $("#pass2").val()))
-		{
-			alert("Passwords do not match.");
-		 	return false;
-		}
-	}); 
-	});
+<script type="text/javascript" src="file:///C:/Users/Henry/Desktop/Class info/Semester 4 - Spring 2012/IST 256/validation/js/languages/jquery.validationEngine-en.js"></script>
+<script type="text/javascript" src="file:///C:/Users/Henry/Desktop/Class info/Semester 4 - Spring 2012/IST 256/validation/js/jquery.validationEngine.js"></script>
+<link rel="stylesheet" href="file:///C:/Users/Henry/Desktop/Class info/Semester 4 - Spring 2012/IST 256/validation/css/validationEngine.jquery.css" type="text/css"/>
+<link rel="stylesheet" type="text/css" href="../../Class%20info/Semester%204%20-%20Spring%202012/IST%20256/SRS/SRS/css/style2.css" />
+<script>
 	
 
-
+$(document).ready(function(){
+	    $("#myform").validationEngine();
+    
+    });
+	
 </script>
 </head>
-
 <body>
-<h1>Student Information</h1>
-<p>Please provide the following information to submit your registration request and create your account.</p>
-<form id="form" action="account.php" method="POST">
+	<div id="header">
+		<div>
+			<div id="logo">
+				<a href="index.html">
+				<img src="../../Class%20info/Semester%204%20-%20Spring%202012/IST%20256/SRS/SRS/images/logo.jpg" alt="Logo" /></a>
+			</div>
+			<div id="navigation">
+				<div>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li class="current"><a href="registration.php">Register</a></li>
+						<li><a href="contact.html">Contact Us</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div id="content">
+		<div>
+		
+			<b class="first"><strong>Student Registration Information</strong></b>
+			<form id="myform" action="account.php" method="POST">
 <table id="table">
 	<tr>
-		<td>Last Name: </td>
-		<td><input type="text" id="lname" name="lname" /></td>
-		<td>First Name: </td>
-		<td><input type="text" id="fname" name="fname" /></td>
-		<td>Middle Name: </td>
-		<td><input type="text" id="mname" name="mname" /></td>
+		<td style="width: 180px"><label for="lname">Last Name: </label><input type="text" id="lname" name="lname" class="validate[required,custom[checkname]]"/></td>
+		<td style="width: 180px"><label for="fname">First Name: </label><input type="text" id="fname" name="fname" class="validate[required,custom[checkname]]"/></td>
+		<td style="width: 170px"><label for="mname">Middle Name: </label><input type="text" id="mname" name="mname" class="validate[required,custom[checkname]]"/></td>
+	</tr>
+	<tr> 
+	<td style="width: 180px"></td>
+	<td style="width: 180px"></td>
+	<td style="width: 170px"></td>
 	</tr>
 	<tr>
-		<td>SSN (no dashes): </td>
-		<td><input type="text" id="ssn" name="ssn" /></td>
-		<td>DOB (mm/dd/yyyy): </td>
-		<td><input type="text" id="dob" name="dob" /></td>
+		<td style="width: 180px"><label for="ssn">SSN (no dashes): </label><input type="text" id="ssn" name="ssn" class="validate[required,custom[checkssn]]"/></td>
+		<td style="width: 180px"><label for="dob">DOB (mm/dd/yyyy): </label><input type="text" id="dob" name="dob" class="validate[required,custom[checkdob]]"/></td>
+	</tr>
+	<tr> 
+	<td style="width: 180px"></td>
+	<td style="width: 180px"></td>
 	</tr>
 	<tr>
-		<td>Street Address: </td>
-		<td><input type="text" id="street" name="street" /></td>
-		<td>City/Town: </td>
-		<td><input type="text" id="city" name="city" /></td>
-		<td>State: </td>
-		<td><select id="state" name="state">
+		<td style="width: 180px"><label for="street">Street Address: </label><input type="text" id="street" name="street" class="validate[required,custom[checkstreet]]"/></td>
+		<td style="width: 180px"><label for="city">City/Town: </label><input type="text" id="city" name="city" class="validate[required,custom[checkcity]]"/></td>
+		<td style="width: 170px"><label for="state">State: </label><select id="state" name="state">
 			<option value="AL">Alabama</option>
 			<option value="AK">Alaska</option>
 			<option value="AZ">Arizona</option>
@@ -171,30 +119,34 @@ $(document).ready(function () {
 			</select>
 		</td>
 	</tr>
+	<tr> 
+	<td style="width: 180px"></td>
+	<td style="width: 180px"></td>
+	</tr>
 	<tr>
-		<td>Zip Code: </td>
-		<td><input type="text" id="zip" name="zip" /></td>
-		<td>Phone (no dashes): </td>
-		<td><input type="text" id="phone" name="phone" /></td>
+		<td style="width: 180px"><label for="zip">Zip Code: </label><input type="text" id="zip" name="zip" class="validate[required,custom[checkzip]]"/></td>
+		<td style="width: 180px"><label for="phone">Phone (no dashes): </label><input type="text" id="phone" name="phone" class="validate[required,custom[checkphone]]"/></td>
 	</tr>
 	<tr> 
-	<td></td>
+	<td style="width: 180px"></td>
+	<td style="width: 180px"></td>
 	</tr>
 	<tr>
-		<td>Create your password: </td>
-		<td><input type="text" id="pass" name="pass" /></td>
+		<td style="width: 180px"><label for="pass">Create your password: </label><input type="text" id="pass" name="pass" class="validate[required,custom[checkpass]]"/></td>
 	</tr>
 	
 	<tr>
-		<td>Confirm password:</td>
-		<td><input type="text" id="pass2" name="pass2" /></td>
+		<td style="width: 180px"><label for="pass2">Confirm password: </label><input type="text" id="pass2" name="pass2" class="validate[required,equals[pass]]"/></td>
 	</tr>
 
 </table>
+<br />
 <input type="submit" id="btn_sub" name="btn_sub" value="Submit" />
 <input name="Reset1" id="reset" type="reset" value="Reset" />
-</form>
-
+</form></p>
+		</div>
+	</div>
+	
+	</div>
 </body>
-
 </html>
