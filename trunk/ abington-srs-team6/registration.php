@@ -8,7 +8,7 @@
 <script type="text/javascript" src="file:///C:/Users/Henry/Desktop/Class info/Semester 4 - Spring 2012/IST 256/validation/js/languages/jquery.validationEngine-en.js"></script>
 <script type="text/javascript" src="file:///C:/Users/Henry/Desktop/Class info/Semester 4 - Spring 2012/IST 256/validation/js/jquery.validationEngine.js"></script>
 <link rel="stylesheet" href="file:///C:/Users/Henry/Desktop/Class info/Semester 4 - Spring 2012/IST 256/validation/css/validationEngine.jquery.css" type="text/css"/>
-<link rel="stylesheet" type="text/css" href="../../Class%20info/Semester%204%20-%20Spring%202012/IST%20256/SRS/SRS/css/style2.css" />
+<link rel="stylesheet" type="text/css" href="../../Class%20info/Semester%204%20-%20Spring%202012/IST%20256/SRS/SRS/css/murphstyle.css" />
 <script>
 	
 
